@@ -1,16 +1,17 @@
 # Ignore all object files:
-.o
+*.o
 
 # Ignore all backup files:
-~
+*~
 
 # Ignore all text documents:
 
-.txt
-.doc
-.docx
-.pdf
+*.txt
+*.doc
+*.docx
+*.pdf
 
 # Ignore exec.
 
 /Exercise1/HelloWord
+/Exercise2/Exercise2
