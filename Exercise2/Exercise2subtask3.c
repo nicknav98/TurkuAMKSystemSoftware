@@ -2,6 +2,7 @@
 File: Exercise2.c
 Author: Nicholas Navarro
 Description: Completing 3 Tasks set out in Exercise 2 of course.
+Imported Modules: stdio for printf, math.h for pow(exponent,base)
 */
 
 
@@ -10,7 +11,7 @@ Description: Completing 3 Tasks set out in Exercise 2 of course.
 
 
 int main() {
-  /* code */
+
 
 double firstNumber = 0; //user inputed first number
 double secondNumber = 0; //user inputed second number
@@ -20,6 +21,7 @@ float sumNumbers = 0; // var to hold sum
 float avgNumbers = 0; //var to hold average of two numbers
 int diffNumbers = 0; //var to hold difference between 2 numbers
 float divNumbers = 0; //var to hold division of 2 numbers
+float power = 0; //var to hold the first number power to the second number
 
 
 
@@ -39,34 +41,35 @@ while(status!=1){
     return 0;
  }
 
-if(firstNumber>secondNumber) //comparison using >
+if(firstNumber>secondNumber){ //comparison using >
   printf("Your first Number : %f is bigger than your second number: %lf !\n", firstNumber, secondNumber);
 
-if(secondNumber>firstNumber) //integer size variabler
+}else if(secondNumber>firstNumber){ //comparison if second number is bigger than first
   printf("Your second number: %f is bigger than your first number: %lf !\n", secondNumber, firstNumber);
 
-if(firstNumber==secondNumber) //check if both integers are equal
+}else if(firstNumber==secondNumber){ //check if both integers are equal
   printf("Both numbers are equal: %f and %f!\n", firstNumber, secondNumber);
+}
 
 
-sumNumbers = firstNumber+secondNumber;
-printf("The sum of these two integers are: %g", sumNumbers);
+sumNumbers = firstNumber+secondNumber; //adds two numbers
+printf("The sum of these two integers are: %g\n", sumNumbers);//prints result
 
-avgNumbers = sumNumbers/2;
-printf("The average of these two integers are: %g", avgNumbers);
+avgNumbers = sumNumbers/2;//calculates the average of the two numbers
+printf("The average of these two integers are: %g\n", avgNumbers);//prints result
 
-diffNumbers = firstNumber-secondNumber;
-printf("The difference is these two numbers are: %d", diffNumbers);
+diffNumbers = firstNumber-secondNumber; //difference calculation
+printf("The difference of these two numbers are: %d\n", diffNumbers);
 
-if(secondNumber == 0)
-  printf("Division function cannot be executed due to a zero divisor");
+if(secondNumber == 0){ //checking if divisor is 0, error handling
+  printf("Division function cannot be executed due to a zero divisor\n");
 
-else(secondNumber != 0);
-  divNumbers = firstNumber/secondNumber;
-  printf("The first number divided by the second number is : %g", divNumbers);
+}else{
+  divNumbers = firstNumber/secondNumber; //calculation division
+  printf("The first number divided by the second number is : %g\n", divNumbers); //prints result
+}
 
-
-
-printf("The first number to the power of the second number is: %lf", power);
+power = pow(secondNumber,firstNumber); //calculates the power
+printf("The first number to the power of the second number is: %lf\n", power);//prints results
 
 }
