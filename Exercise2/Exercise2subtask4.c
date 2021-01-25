@@ -37,12 +37,12 @@ int main(){
     printf("Your Random Number is not divisble by 3\n");
   }
 
-}
 
-  if(randomNum % 3 == 0){ //checking div by 3, if mod 3 = 0, than yes
+
+if(randomNum % 3 == 0){ //checking div by 3, if mod 3 = 0, than yes
     printf("Your Random Number is Divisible by 3\n");
   }else{
-    printf("Your Random Number is not divisble by 3\n")
+    printf("Your Random Number is not divisble by 3\n");
   }
 
 }
