@@ -6,6 +6,8 @@ Description:
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
+
 
 int main() {
   //Task 3
@@ -31,9 +33,9 @@ int main() {
     sum += counter1;
 
   }
-  printf("The Sum of the Numbers 0 to %d is: %d \n ",loopRange,sum);
+  printf("The Sum of the Numbers 0 to %d is: %d\n",loopRange,sum);
 
-  printf("\n Part 2: Please Enter a number to find the sum of even natural numbers up until this limit: ");
+  printf("Part 2: Please Enter a number to find the sum of even natural numbers up until this limit: ");
   scanf("%d", &evenRange);
 
   for(counter2; counter2 <= evenRange; ++counter2){
@@ -54,17 +56,13 @@ int main() {
    RandomNum = (rand() % (upperLimit - lowerLimit + 1)) + lowerLimit;
    printf("The random number is: %d \n", RandomNum);
 
-  while (multiSum <= 20000000){
-    multiResult = RandomNum*RandomNum;
-    multiSum = multiResult*multiResult;
-
+for(multiSum = RandomNum; multiSum < 65535; multiSum *= RandomNum  ){
+  printf("%d \t", multiSum);
 }
 
 
-  printf("Sum of Natural number squared is: %d\n", multiSum);
+  printf("\nSum of Natural number squared, with limit of maximum 2-byte int storage,is: %d\n", multiSum);
   return 0;
-
-
 
 
 }
