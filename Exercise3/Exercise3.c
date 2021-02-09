@@ -55,7 +55,7 @@ int main() {
    RandomNum = (rand() % (upperLimit - lowerLimit + 1)) + lowerLimit; //generating RN, range from 2 to 20, as stated in INT initialization - See Start of Main
    printf("The random number is: %d \n", RandomNum);//Prints Random Number
 
-for(multiSum = RandomNum; multiSum <= 65535; multiSum *= multiSum){ // MAX INT VALUE is 2 bytes, 65535 as a number, therefore set a maximum number -- multiplys each result by itself.
+   for(multiSum = RandomNum; multiSum <= 65535; multiSum *= multiSum){ // MAX INT VALUE is 2 bytes, 65535 as a number, therefore set a maximum number -- multiplys each result by itself.
   printf("%d \t", multiSum); //prints each number
 }
 
