@@ -22,7 +22,7 @@ int sumInput(int number) { //declaring function to count every number entered
 
 int sumDivByThree(int number){ //declaring function to count every number that is divisible by 3
     static int sumthree = 0; //static variable to hold sum of number that have mod 3 = 0
-    if (number % 3 == 0){
+    if (number % 3 == 0 && number > 0){
         sumthree += number; //adds number to sumthree
     }
     return sumthree;
