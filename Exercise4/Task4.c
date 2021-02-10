@@ -8,16 +8,18 @@ Description: Task 4 generating random numbers to calculate system software grade
 #include <stdlib.h>
 #include <time.h>
 
+
+
+
+
+
 int randomNumberGenerator(int num1, int num2){
   //static time integer to hold base of time
   int randomNum = 0;
-  /* Intializes random number generator */
-  srand(time(0));
-
   if(num1 > num2){
-  randomNum = (rand() % (num1 - num2 + 1) + num2);
+  randomNum = (rand() % ((num1 - num2) + 1) + num2);
   }else if(num2 > num1){
-  randomNum = (rand() % (num2 - num1 + 1) + num1);
+  randomNum = (rand() % ((num2 - num1) + 1) + num1);
   }else{
   randomNum = (rand() % num1);
   }
@@ -63,10 +65,13 @@ int main(){
 
   int userInput1 = 1;
   int userInput2 = 1;
-  int minRange = 0;
-  int maxRange = 100;
+  int minRange = 101;
+  int maxRange = 101;
   int examScore = 0;
   int taskScore = 0;
+
+  /* Intializes random number generator */
+  srand( time(NULL) );
 
   printf("Welcome To Random Number Generator!\n");
   printf("Two non-zero numbers will be used to define the random number range NOTE! if two numbers are equal, the range will be from 0 to numbers entered\n");
@@ -91,9 +96,11 @@ int main(){
   //Part B
 
   examScore = randomNumberGenerator(minRange,maxRange);
-  taskScore = randomNumberGenerator(minRange,maxRange);
 
   printf("---------------------------------");
+
+  taskScore = randomNumberGenerator(minRange,maxRange);
+
   printf("Part B - Grade Evaluator. The Range of two random numbers are 0 to 200, lets see what grade you get!\n");
   printf("Your Tasks Score is: %d\n", taskScore);
   printf("Your Exam Score is: %d\n", examScore);
