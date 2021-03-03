@@ -56,8 +56,7 @@ int main() {
   scanf("%d", &loopRange); //reads user input for loops range
   printf("The Amount of Entries is: %d \n", loopRange); //prints loops range
 
-  for (stepAmount; stepAmount < loopRange; stepAmount++){
-
+  for(stepAmount; stepAmount < loopRange; stepAmount++){
     printf("Enter a number to be saved in the array: \n");
     scanf("%f", &userArr[stepAmount]);//reads users number to be saved
 
@@ -65,9 +64,7 @@ int main() {
       // continuously checks against hightest amount
       userArr[0] = userArr[stepAmount];
     }
-
-
-  }
+}
 
 
 
