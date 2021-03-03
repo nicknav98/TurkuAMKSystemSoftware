@@ -14,7 +14,7 @@ Description: array manipulation with pointers
 /* function initialising */
 void arrayPrinter(int *arrPointer, int size); //function for array printing, with parameters of array, and the size of array
 void arrayFiller(int *arrayFilled); //function for filling array with random numbers, with parameters of array
-void sortArray(int *sorting); //function for sorting array from largest to smallest with parameters of array
+void sortArray(int *sorting, int length); //function for sorting array from largest to smallest with parameters of array
 
 
 
@@ -36,9 +36,9 @@ int main(){
   arrayFiller(randPtr); //function call to fill array with random numbers
   arrayPrinter(randPtr, SIZE); //function call to print array
 
+  printf("Sorting Array Now......\n");
 
-
-  sortArray(randPtr); //function call to sort array
+  sortArray(randPtr,SIZE); //function call to sort array
   arrayPrinter(randPtr, SIZE); //function call to print sorted array
 
   return 0;
@@ -66,21 +66,21 @@ void arrayFiller (int *arrayFill){
   }
 }
 
-void sortArray (int *sorting){
+void sortArray (int *sorting, int length){
 
   int i = 0; //counter variable for first loop
   int j = 0; //counter variable for second loop
   int temp = 0; // variable to hold temporary variables
 
-   for(i=0;i< SIZE;i++) // for each step in length
+   for( i=0; i < length; i++) // for each step in length
    {
-    for(j=i+1; j < SIZE ;j++) //for each extra step in length
+    for( j=i+1; j < length ; j++) //for each extra step in length
     {
-     if((*sorting + i) < *(sorting +j)) //if the first number is smaller than the next
+     if((*sorting + i) > *(sorting + j)) //if the first number is smaller than the next
      {
       temp = *(sorting + i); //temp holds smaller
-      *(sorting + i) = *(sorting+j); //bigger value takes precedence
-      *(sorting+j) = temp; //smaller value takes after
+      *(sorting + i) = *(sorting+j); //smaller value takes precedence
+      *(sorting+j) = temp; //bigger value takes after
      }
     }
    }
