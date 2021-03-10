@@ -1,11 +1,11 @@
 /*
  * File:   		Armstrong.c
- * Author:
- * Description:
+ * Author:	Nicholas Navarro
+ * Description: Armstrong numbers to be filled in array
  */
 
 #include <stdio.h>
-#include <math.h>
+#include <math.h> //for pow()
 #include "Armstrong.h"
 #define MAXRANGE 100000
 
@@ -15,50 +15,61 @@
 
 // Test function implementation, remove and code your functions here.
 
+
 int testArmstrong(int *fillArray) {
 
-	int num, lastDigit, digits, sum, counter;
-  int lower = 0;
-	int upper = MAXRANGE;
-	int arrayPosition = 0;
+	int i = 0; //counter integer
+	int sum = 0; //integer to hold result
+	int num = 0; //integer to hold the number to be tested
+	int lastDigit = 0; //integer to hold the last digit
+	int digits = 0; //integer to hold number of digits
+  int lower = 0; //integer to hold lower range
+	int upper = MAXRANGE; //integer to hold max range
+	int arrayPosition = 0; //integer to hold the positional co-ordinates
 
 
-     printf("Armstrong number between %d to %d are: \n", lower, upper);
 
-  while( arrayPosition < 20) {
-		 for(counter=lower; counter<=upper; counter++)
-     {
+
+
+	for(i=lower; i<=upper; i++) {
          sum = 0;
 
-         // Copy the value of num for processing
-         num = counter;
+         // Copy the value of num for processing /
+         num = i;
 
-         // Find total digits in num
+         // Find total digits in num /
          digits = (int) log10(num) + 1;
 
-         // Calculate sum of power of digits
-         while(num > 0)
+         // Calculate sum of power of digits /
+         while(num != 0)
          {
-             // Extract the last digit
+             //Extract the last digit /
              lastDigit = num % 10;
 
              // Find sum of power of digits
              // Use ceil() function to overcome any rounding errors by pow()
              sum = sum + ceil(pow(lastDigit, digits));
 
-             // Remove the last digit
+             // Remove the last digit /
              num = num / 10;
          }
 
-          // Check for Armstrong number
-         if(counter == sum)
+         //Check for Armstrong number */
+         if(i == sum)
          {
-             *(fillArray + arrayPosition) = counter;
-						 arrayPosition++;
+
+						 *(fillArray + arrayPosition) = i; //fills the position of the array with armstrong num
+						 arrayPosition = arrayPosition + 1; //moves to next position of the array
+
+
+
+
          }
-     }
-	 }
+
+		}
+
+
+
 
 	 return *fillArray;
-
 }

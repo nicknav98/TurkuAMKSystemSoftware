@@ -1,7 +1,7 @@
 /*
  * File:   		Exercise7.c
  * Author:    Nicholas Navarro
- * Description: Task 2 - Checking Armstrong Arrays
+ * Description: main file that calls functions created in task 2 and 3
  */
 
 #include <stdio.h>
@@ -11,12 +11,12 @@
 
 void arrayPrinter(int *arrPointer, int size) {
 
-  printf("The values of the array are: \n");
+  printf("The values of the array, with Armstrong Numbers, are: \n");
 
-  int i = 0; //counter variable
+  int c = 0; //counter variable
 
-  for ( i = 0; i < size; i++ ) { //for each value from 0 to size of array
-    printf("value %d: %d\n", i, (*arrPointer + i)); //print value of variable that pointer points to
+  for (c = 0; c < size; c++ ) { //for each value from 0 to size of array
+    printf("value %d: %d\n", c, (*arrPointer)); //print value of variable that pointer points to
     arrPointer++; //increase pointer to next array value
   }
 
@@ -25,15 +25,17 @@ void arrayPrinter(int *arrPointer, int size) {
 
 int main (){
 
-	int testArray[20] = {};
-	int *testPtr = &testArray[0];
+	int testArray[20] = {}; //empty array created
+	int *testPtr = &testArray[0]; //pointer created
 
 
 
 
-  testArmstrong(testPtr);
+  testArmstrong(testPtr); //passes array to function test armstrong
 
-  arrayPrinter(testPtr, 20);
+  arrayPrinter(testPtr, 20); //prints results
+
+  testPrime(testPtr); //prints prime number of each element
 
 	return 0;
 }
