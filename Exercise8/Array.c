@@ -23,10 +23,11 @@ void arrayPrinter(int *arrPointer, int size) {
   int i = 0; //counter variable
 
   for ( i = 0; i < size; i++ ) { //for each value from 0 to size of array
-    printf("value %d: %d\n", i+1, (*arrPointer)); //print value of variable that pointer points to
+    printf("value %d: %d | \t", i+1, (*arrPointer)); //print value of variable that pointer points to
     arrPointer++; //increase pointer to next array value
   }
 
+	printf("\nPrinting Finished\n");
 }
 
 int *arrayFiller (int *arrayFill, int size){
@@ -47,6 +48,43 @@ void memChecker(int *Ptr)	{
       printf("Memory not allocated.\n");
 
   }
+
+}
+
+int *textToArray(int *array, char *filePath) {
+
+	int max = 256;
+
+
+
+	array = malloc(max * sizeof(int));
+
+	FILE *openFile = fopen(filePath, "r");
+	int c = 0;
+
+	printf("%s, opened \n", filePath);
+
+	if (! openFile ) // equivalent to saying if ( in_file == NULL )
+             {
+                printf("Error!, file not found!\n");
+                return 0;
+             }
+
+
+
+	while(!feof(openFile)) {
+		fscanf(openFile, "%1d", &*(array+c));
+		c++;
+
+	}
+
+
+
+
+	fclose(openFile);
+	printf("%s, closed, with %d numbers added to the array \n", filePath, c+1);
+
+	return array;
 
 }
 

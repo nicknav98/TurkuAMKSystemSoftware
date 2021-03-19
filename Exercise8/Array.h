@@ -12,6 +12,6 @@ void arrayPrinter();
 int *arrayFiller();
 void timeSeeder();
 void memChecker();
-
+int *textToArray();
 
 #endif /* ARRAY_H */

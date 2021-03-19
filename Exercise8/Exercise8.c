@@ -16,15 +16,16 @@
 
 #define SIZE 10
 
+
+
 int main() {
 
-
-
-  timeSeeder();
-
+  /*TASK 4*/
   int *dynamicPtr = NULL;
   int *isCorrect = NULL;
   int userNum = 0;
+  timeSeeder();
+
 
 
 
@@ -49,7 +50,7 @@ int main() {
   printf("\n");
   printf("Welcome to the Guesser!\n");
 
-  dynamicPtr = (int*)malloc(SIZE *sizeof(int));
+  dynamicPtr = (int*)malloc(SIZE * sizeof(int));
 
   arrayFiller(dynamicPtr, SIZE);
 
@@ -67,7 +68,27 @@ int main() {
 
   free(dynamicPtr);
   memChecker(dynamicPtr);
-  printf("Malloc Memory successfully Freed.\n");
+  printf("Malloc Memory successfully freed.\n");
+
+
+  /*Task 5 Starts from here*/
+
+  int *dynamicInputPtr = NULL;
+  char *userFile = "Numbers.txt";
+  int *newArray = NULL;
+
+
+  newArray = textToArray(dynamicInputPtr,userFile);
+
+
+  arrayPrinter(newArray, 102);
+
+
+
+
+
+
+
 
 
 
