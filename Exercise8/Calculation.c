@@ -7,13 +7,28 @@
 #include <stdio.h>
 #include "Calculation.h"
 
-// REMEMBER TO HAVE ALL FUNCTION PROTOTYPES IN THE HEADER FILE (.h)
-// ALL IMPLEMENTATION CODE (= FUNCTION IMPLEMENTATION) SHALL BE IN .c file.
-// REMOVE THESE HINTS IN YOUR FINAL VERSION.
+void maximuSubArray(int *subArray, int size) {
 
-// Test function implementation, remove and code your functions here.
-void testCalculation() {
+	int i = 0; //counter variable
+	int j = 0; //counter variable
+	int k = 0; //counter variable
+  int sum = 0; //temp variable to hold the sum of 5 numbers
+	int maxSum = 0; //vairable to hold the highest sum
 
-	printf("Hello from Calculation Function!.\n");
+
+	for(i=0; i<size; i++) //for each step from 1 to size of array
+  {
+    for(j=i; j<size; j++) //for each step from 1 to size of the array
+    {
+      sum = 0; //temp is empty
+      for(k=i ; k<j; k++) //for each value higher than previous value
+      {
+        sum = sum + *(subArray + k); //temp adds prevous number to next number in array
+      }
+      if(sum>maxSum) //if sum is bigger than highest sum
+        maxSum = sum; //maxSum now holds the biggest number
+    }
+   }
+  printf("The Maximum Sum of Adjacent Numbers is: %d\n", maxSum);//prints result
 
 }

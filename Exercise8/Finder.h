@@ -9,5 +9,6 @@
 #define FINDER_H
 // Test function prototype, remove the test and add your functions' prototypes here.
 int *userGuess();
+int arraySize();
 
 #endif /* FINDER_H */

@@ -7,7 +7,7 @@
 
 #ifndef CALCULATION_H
 #define CALCULATION_H
-// Test function prototype, remove the test and add your functions' prototypes here.
-void testCalculation();
+
+void maximuSubArray();
 
 #endif /* CALCULATION.H */

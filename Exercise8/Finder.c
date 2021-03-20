@@ -5,13 +5,8 @@
  */
 
 #include <stdio.h>
+#include <string.h>
 #include "Finder.h"
-
-// REMEMBER TO HAVE ALL FUNCTION PROTOTYPES IN THE HEADER FILE (.h)
-// ALL IMPLEMENTATION CODE (= FUNCTION IMPLEMENTATION) SHALL BE IN .c file.
-// REMOVE THESE HINTS IN YOUR FINAL VERSION.
-
-// Test function implementation, remove and code your functions here.
 
 int *userGuess(int *arrayPtr, int size, int userInput)	{
 
@@ -25,10 +20,23 @@ int *userGuess(int *arrayPtr, int size, int userInput)	{
 
 		if(arrayValue == userInput) {
 			finalValue = (arrayPtr+c);
-			printf("Number Found in Position: %d!\n", c+1);
+			printf("Number Found in Position: %d!\n", c);
 		}
 	}
 
 	return finalValue;
+
+}
+
+int arraySize(int *array) {
+
+	int count = 0; //counter variable
+
+
+	while (*(array + count) != 757935405){ //while the array elements doesnt equal to the numerical value of -
+		count++; //increase counter
+	}
+
+	return count; //return the counter, which holds the size of array
 
 }

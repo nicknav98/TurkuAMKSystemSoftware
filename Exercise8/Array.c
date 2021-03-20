@@ -23,7 +23,7 @@ void arrayPrinter(int *arrPointer, int size) {
   int i = 0; //counter variable
 
   for ( i = 0; i < size; i++ ) { //for each value from 0 to size of array
-    printf("value %d: %d | \t", i+1, (*arrPointer)); //print value of variable that pointer points to
+    printf("value %d: %d |\n", i+1, (*arrPointer)); //print value of variable that pointer points to
     arrPointer++; //increase pointer to next array value
   }
 
@@ -44,7 +44,7 @@ int *arrayFiller (int *arrayFill, int size){
 
 void memChecker(int *Ptr)	{
 
-	if (Ptr == NULL) {
+	if (Ptr == NULL) { //if pointer paramter holds no value
       printf("Memory not allocated.\n");
 
   }
@@ -53,18 +53,14 @@ void memChecker(int *Ptr)	{
 
 int *textToArray(int *array, char *filePath) {
 
-	int max = 256;
 
 
+	FILE *openFile = fopen(filePath, "r"); //opens file
+	int c = 0; //counter variable
 
-	array = malloc(max * sizeof(int));
+	printf("%s, opened \n", filePath); //message to show file is opened
 
-	FILE *openFile = fopen(filePath, "r");
-	int c = 0;
-
-	printf("%s, opened \n", filePath);
-
-	if (! openFile ) // equivalent to saying if ( in_file == NULL )
+	if (! openFile ) // equivalent to saying if ( in_file == NULL i.e if no file is found)
              {
                 printf("Error!, file not found!\n");
                 return 0;
@@ -72,21 +68,22 @@ int *textToArray(int *array, char *filePath) {
 
 
 
-	while(!feof(openFile)) {
-		fscanf(openFile, "%1d", &*(array+c));
-		c++;
+	while(!feof(openFile)) { //while the end of file hasnt been read
+		fscanf(openFile, "%d", &*(array+c)); //scans numbers and place them into array+position
+		c++; //increase the position of array
 
 	}
 
 
 
 
-	fclose(openFile);
-	printf("%s, closed, with %d numbers added to the array \n", filePath, c+1);
+	fclose(openFile); //close file
+	printf("%s, closed, with %d numbers added to the array \n", filePath, c-1); //makes sure file is closed, and prints number of entries made
 
-	return array;
+	return array; //returns the filled array
 
 }
+
 
 
 void timeSeeder(){
