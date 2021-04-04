@@ -19,12 +19,14 @@ typedef struct
 typedef struct
 {
   char* playerName;
-  TEAM TEAM;
+  char* Team;
   float pointsPerGame;
 } PLAYER;
 
 
-TEAM *structArray(TEAM *emptyArray, int size);
+TEAM *teamArray(TEAM *emptyArray, int numOfTeams);
+PLAYER *playerArray(PLAYER *emptyArray, int numOfTeams);
 void arrayPrinter(TEAM *arrayPointer, int size);
+void playersPrinter(PLAYER *arrayPointer, int size);
 
 #endif /* ARRAY_H */

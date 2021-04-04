@@ -10,7 +10,7 @@ Exercise9.o: Exercise9.c Array.h
 	$(CC) $(CFLAGS) -c Exercise9.c
 
 Array.o: Array.c Array.h
-	$(CC) $(CFLAGS) -c Array.c
+	$(CC) $(CFLAGS) -c Array.c -lm
 
 clean:
 	$(RM) Exercise9 *.o *~

@@ -9,20 +9,33 @@
 #include <stdlib.h>
 #include "Array.h"
 
-#define MAX 256
+
 
 int main() {
-  TEAM* emptyTeams = NULL;
-  TEAM* fillTeams = NULL;
-  int userInput = 0;
+  TEAM* emptyTeams = malloc(sizeof(emptyTeams));
+  TEAM* fillTeams = malloc(sizeof(fillTeams));
 
-  printf("Please enter the amount of teams you would liket to define: ");
-  scanf("%d", &userInput);
+  PLAYER* emptyPlayers = malloc(sizeof(emptyPlayers));
+  PLAYER* playerList = malloc(sizeof(playerList));
+  int userInputTeams = 0;
+  int userInputPlayers = 0;
 
-  fillTeams = structArray(emptyTeams,userInput);
-  arrayPrinter(fillTeams,userInput);
+  printf("Please enter the amount of teams you would like to define: ");
+  scanf("%d", &userInputTeams);
 
+  fillTeams = teamArray(emptyTeams,userInputTeams);
+  arrayPrinter(fillTeams,userInputTeams);
 
+  printf("Please enter the amount of players you would like to define: ");
+  scanf("%d", &userInputPlayers);
+
+  playerList = playerArray(emptyPlayers,userInputPlayers);
+  playersPrinter(playerList,userInputPlayers);
+
+  free(emptyTeams);
+  free(fillTeams);
+  free(emptyPlayers);
+  free(playerList);
 
   return 0;
 
