@@ -1,7 +1,7 @@
 
 /*
  * File:       	Struct.h
- * Author:  	Michalis Iona
+ * Author:  	Nicholas Navaarro
  * Description: Struct Header File
 */
 
