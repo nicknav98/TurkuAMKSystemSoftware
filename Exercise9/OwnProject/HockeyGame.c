@@ -15,6 +15,7 @@
 
 #include "HockeyTeams.h"
 #include "Simulation.h"
+#include "InputOutput.h"
 
 #define STOP 100
 
@@ -23,14 +24,23 @@ int main(){
     int userChoice = 0;
     int teamAmount = 0;
 
+    char *raumaFile = "RaumaPlayerList.txt";
+
     srand(time(0));
 
 
     TEAM *emptyteamPtr = NULL;
     TEAM *fillteamPtr = NULL;
+    PLAYER *raumaPlayerList = NULL;
 
     emptyteamPtr = (TEAM *)malloc(sizeof(TEAM));
     fillteamPtr = (TEAM *)malloc(sizeof(TEAM));
+    raumaPlayerList = (PLAYER *)malloc(sizeof(PLAYER));
+
+
+
+
+
 
     printf("Welcome to the Hockey League Tournament!\n");
     printf("Please Select an Option: 1. Start || 2. Instructions || 3.Terminate Program: ");
@@ -44,12 +54,31 @@ int main(){
       scanf("%d",&teamAmount);
 
       fillteamPtr = teamArray(emptyteamPtr,teamAmount);
+      free(emptyteamPtr);
       //arrayPrinter(teamList, teamAmount);
 
 
       gameSimulation(fillteamPtr,(fillteamPtr + 1));
 
+
+      teamRatingCalculator(fillteamPtr);
+      teamRatingCalculator((fillteamPtr + 1));
+
+      gameSimulation(fillteamPtr, (fillteamPtr + 1));
+
+
+
+
+
       arrayPrinter(fillteamPtr, teamAmount);
+
+      fileToPlayerList(raumaPlayerList, raumaFile);
+
+      playerPrinter(raumaPlayerList,2);
+
+
+
+
 
       userChoice = STOP;
 
@@ -69,6 +98,8 @@ int main(){
 
     }
 
+
+    free(fillteamPtr);
     return 0;
 
 

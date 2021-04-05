@@ -52,7 +52,7 @@ TEAM *teamArray(TEAM *emptyArray, int numOfTeams) {
 
   return emptyArray;
 
-  
+
 
 
 

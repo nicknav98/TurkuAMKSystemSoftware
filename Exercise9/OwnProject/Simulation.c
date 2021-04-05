@@ -10,19 +10,19 @@
 #include <math.h>
 #define STOP 100
 
-typedef struct
-{
+typedef struct TEAM {
+
   char* teamName;
   int leaguePosition;
   int teamWins;
   int teamLosses;
   int teamTies;
+  int totalGamesPlayed;
   float pointPercentage;
   float teamRating;
 
-
-
 } TEAM;
+
 
 void gameSimulation(TEAM *hockeyTeam1, TEAM *hockeyTeam2){
 
@@ -39,18 +39,27 @@ void gameSimulation(TEAM *hockeyTeam1, TEAM *hockeyTeam2){
 
     for(gamePeriod = 0; gamePeriod < 3; gamePeriod++){
 
-      team1Goals = team1Goals + rand() % 5;
-      team2Goals = team2Goals + rand() % 5;
+      if(hockeyTeam1->teamRating > hockeyTeam2->teamRating) {
+
+        team1Goals = team1Goals + rand() % (5 + (int)hockeyTeam1->teamRating);
+        team2Goals = team2Goals + rand() % 5;
+
+        } else if (hockeyTeam2->teamRating > hockeyTeam2->teamRating) {
+
+        team2Goals = team2Goals + rand() % (5 + (int)hockeyTeam1->teamRating);
+        team1Goals = team1Goals + rand() % 5;
+
+        } else {
+        team1Goals = team1Goals + rand() % 5;
+        team2Goals = team2Goals + rand() % 5;
+
+        }
     }
-
-
 
     userInput = STOP;
+  }
 
-    }
-
-
-    if(team1Goals > team2Goals){
+      if(team1Goals > team2Goals){
       printf("Team 1 won the game with %d goals compared to Team 2's %d goals!\n", team1Goals, team2Goals);
       hockeyTeam1->teamWins += 1;
       hockeyTeam2->teamLosses += 1;
@@ -66,7 +75,8 @@ void gameSimulation(TEAM *hockeyTeam1, TEAM *hockeyTeam2){
 
 
 
+    hockeyTeam1->totalGamesPlayed += 1;
+    hockeyTeam2->totalGamesPlayed += 1;
 
 
-
-  }
+}

@@ -12,4 +12,5 @@
 
 void gameSimulation(TEAM *hockeyTeam1, TEAM *hockeyTeam2);
 
+
 #endif /* SIMULTION.H */
