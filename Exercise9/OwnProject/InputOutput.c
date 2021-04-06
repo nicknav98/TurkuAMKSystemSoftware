@@ -8,6 +8,8 @@
 #include<string.h>
 #include<stdlib.h>
 
+#define MAX_PLAYERS 11
+
 typedef struct PLAYER {
   int playerNumber;
   char* playerNationality;
@@ -21,18 +23,25 @@ typedef struct PLAYER {
 } PLAYER;
 
 
-PLAYER *fileToPlayerList(PLAYER *playerArrayPointer, char *filePath) {
+void fileToPlayerList(PLAYER *playerArrayPointer, char *filePath) {
 
   FILE *openFile = fopen(filePath, "r");
+
   int c = 0;
-  int ret = 0;
 
+  int number = 0;
 
+  char* firstname;
+  char* lastname;
+  char* nation;
+
+  firstname = (char*)malloc(sizeof(char*));
+
+  lastname = (char*)malloc(sizeof(char*));
+
+  nation = (char*)malloc(sizeof(char*));
 
   printf("%s, opened \n", filePath);
-
-
-
 
   if (! openFile ) // equivalent to saying if ( in_file == NULL i.e if no file is found)
              {
@@ -40,36 +49,38 @@ PLAYER *fileToPlayerList(PLAYER *playerArrayPointer, char *filePath) {
 
              }
 
-do { //while the end of file hasnt been read
+  while(!feof(openFile)){
 
-    PLAYER *players = malloc(sizeof *players);
+    fscanf(openFile,"%d %s %s %s\n", &number, nation, firstname, lastname);
 
-    players[c].playerNationality=(char*)malloc(sizeof(char*));
-    players[c].firstName=(char*)malloc(sizeof(char*));
-    players[c].lastName=(char*)malloc(sizeof(char*));
-    players[c].playerPosition=(char*)malloc(sizeof(char*));
-    players[c].playerHand=(char*)malloc(sizeof(char*));
+    playerArrayPointer[c].playerNumber = number;
+
+    playerArrayPointer[c].playerNationality = nation;
+
+    playerArrayPointer[c].firstName = firstname;
+
+    playerArrayPointer[c].lastName = lastname;
 
 
-    ret = fscanf(openFile, "%d %s %s %s %s %s %d %d\n", &players[c].playerNumber,
-                          players[c].playerNationality,
-                          players[c].firstName,
-                          players[c].lastName,
-                          players[c].playerPosition,
-                          players[c].playerHand,
-                          &players[c].age,
-                          &players[c].yearAcquired );
+
+
+
+
+    nation = (char*)malloc(sizeof(char*));
+
+    firstname = (char*)malloc(sizeof(char*));
+
+    lastname = (char*)malloc(sizeof(char*));
+
+
     c++;
-    playerArrayPointer = &players[0];
 
-    }   while(ret != EOF);
+    }
+
 
 
     fclose(openFile); //close file
-    printf("%s, closed, with %d players added to the List! \n", filePath, c+1); //makes sure file is closed, and prints number of entries made
-
-
-    return playerArrayPointer;
+    printf("%s, closed, with %d players added to the List! \n", filePath, c); //makes sure file is closed, and prints number of entries made
 
 }
 
@@ -79,17 +90,20 @@ void playerPrinter(PLAYER *arrayPointer, int size) {
 
   printf("\nPrinting Team List\n\n");
 
-  for(i = 0; i < size; i++) {
-     printf("Player First Name: %s\n", arrayPointer->firstName);
-     //printf("Team Wins: %d\n", arrayPointer->teamWins);
-     //printf("Team Ties: %d\n", arrayPointer->teamTies);
-     //printf("Team Losses: %d\n", arrayPointer->teamLosses);
-     //printf("Total Games Played: %d\n", arrayPointer->totalGamesPlayed);
-     //printf("Team Rating: %-.1f\n", arrayPointer->teamRating);
+  for(i = 0; i <= size; i++) {
+     printf("Player Number: %d\n", arrayPointer[i].playerNumber);
+     printf("Player Nationality: %s\n", arrayPointer[i].playerNationality);
+     printf("Player First Name: %s\n", arrayPointer[i].firstName);
+     printf("Player Last Name: %s\n", arrayPointer[i].lastName);
+     //printf("Player Position: %s\n", arrayPointer->playerPosition);
+     //printf("Player's Shooting Hand: %s\n", arrayPointer->playerHand);
+     //printf("Player's Age: %d\n", arrayPointer->age);
+     //printf("Player's Joined the Team in Year: %d\n", arrayPointer->yearAcquired);
+
 
      printf("-------------------------\n");
 
-     arrayPointer++;
+
  }
 
 }

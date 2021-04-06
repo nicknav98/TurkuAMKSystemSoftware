@@ -19,7 +19,7 @@ typedef struct PLAYER {
 
 } PLAYER;
 
-int *fileToPlayerList(PLAYER *playerArrayPointer, char *filePath);
+void fileToPlayerList(PLAYER *playerArrayPointer, char *filePath);
 void playerPrinter(PLAYER *arrayPointer, int size);
 
 #endif /* INPUTOUTPUT_H */

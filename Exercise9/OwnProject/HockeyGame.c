@@ -33,9 +33,13 @@ int main(){
     TEAM *fillteamPtr = NULL;
     PLAYER *raumaPlayerList = NULL;
 
+
     emptyteamPtr = (TEAM *)malloc(sizeof(TEAM));
     fillteamPtr = (TEAM *)malloc(sizeof(TEAM));
     raumaPlayerList = (PLAYER *)malloc(sizeof(PLAYER));
+    raumaPlayerList->playerNationality = (char*)malloc(sizeof(char*));
+    raumaPlayerList->firstName = (char*)malloc(sizeof(char*));
+    raumaPlayerList->lastName = (char*)malloc(sizeof(char*));
 
 
 
@@ -74,7 +78,7 @@ int main(){
 
       fileToPlayerList(raumaPlayerList, raumaFile);
 
-      playerPrinter(raumaPlayerList,2);
+      playerPrinter(raumaPlayerList,1);
 
 
 
