@@ -22,9 +22,13 @@ typedef struct TEAM {
 } TEAM;
 
 
+
+
+
 TEAM *teamArray(TEAM *emptyArray, int numOfTeams);
 void arrayPrinter(TEAM *arrayPointer, int size);
 void teamRatingCalculator(TEAM *hockeyTeam);
+
 
 
 

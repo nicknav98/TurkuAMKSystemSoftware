@@ -24,6 +24,8 @@ typedef struct TEAM {
 } TEAM;
 
 
+
+
 TEAM *teamArray(TEAM *emptyArray, int numOfTeams) {
 
 

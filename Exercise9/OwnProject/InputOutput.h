@@ -17,9 +17,12 @@ typedef struct PLAYER {
   int age;
   int yearAcquired;
 
+  char* Team;
+
 } PLAYER;
 
 void fileToPlayerList(PLAYER *playerArrayPointer, char *filePath);
 void playerPrinter(PLAYER *arrayPointer, int size);
+
 
 #endif /* INPUTOUTPUT_H */

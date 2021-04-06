@@ -25,21 +25,39 @@ int main(){
     int teamAmount = 0;
 
     char *raumaFile = "RaumaPlayerList.txt";
+    char *helsinkiFile = "HelsinkiPlayerList.txt";
 
     srand(time(0));
 
 
     TEAM *emptyteamPtr = NULL;
     TEAM *fillteamPtr = NULL;
+
     PLAYER *raumaPlayerList = NULL;
+    PLAYER *helsinkiPlayerList = NULL;
+
+
 
 
     emptyteamPtr = (TEAM *)malloc(sizeof(TEAM));
     fillteamPtr = (TEAM *)malloc(sizeof(TEAM));
-    raumaPlayerList = (PLAYER *)malloc(sizeof(PLAYER));
-    raumaPlayerList->playerNationality = (char*)malloc(sizeof(char*));
-    raumaPlayerList->firstName = (char*)malloc(sizeof(char*));
-    raumaPlayerList->lastName = (char*)malloc(sizeof(char*));
+
+    raumaPlayerList = malloc(sizeof(PLAYER));
+    raumaPlayerList->playerNationality = (char*)malloc(sizeof(char));
+    raumaPlayerList->firstName = (char*)malloc(sizeof(char));
+    raumaPlayerList->lastName = (char*)malloc(sizeof(char));
+    raumaPlayerList->playerPosition = (char*)malloc(sizeof(char));
+    raumaPlayerList->playerHand = (char*)malloc(sizeof(char));
+    raumaPlayerList->Team = (char*)malloc(sizeof(char));
+
+    helsinkiPlayerList = malloc(sizeof(PLAYER));
+    helsinkiPlayerList->playerNationality = (char*)malloc(sizeof(char));
+    helsinkiPlayerList->firstName = (char*)malloc(sizeof(char));
+    helsinkiPlayerList->lastName = (char*)malloc(sizeof(char));
+    helsinkiPlayerList->playerPosition = (char*)malloc(sizeof(char));
+    helsinkiPlayerList->playerHand = (char*)malloc(sizeof(char));
+    helsinkiPlayerList->Team = (char*)malloc(sizeof(char));
+
 
 
 
@@ -54,12 +72,12 @@ int main(){
 
     while(userChoice == 1){
 
-      printf("\nPlease Enter the Amount of Teams you would like to compete for the AMK CUP!\n");
+      printf("\nPlease Enter the Amount of Teams you would like to compete in the AMK Pond Hockey League!\n");
       scanf("%d",&teamAmount);
 
       fillteamPtr = teamArray(emptyteamPtr,teamAmount);
       free(emptyteamPtr);
-      //arrayPrinter(teamList, teamAmount);
+
 
 
       gameSimulation(fillteamPtr,(fillteamPtr + 1));
@@ -70,6 +88,8 @@ int main(){
 
       gameSimulation(fillteamPtr, (fillteamPtr + 1));
 
+      printf("Tournament Now Over! Results printed below!\n\n");
+
 
 
 
@@ -78,7 +98,19 @@ int main(){
 
       fileToPlayerList(raumaPlayerList, raumaFile);
 
-      playerPrinter(raumaPlayerList,1);
+      playerPrinter(raumaPlayerList,4);
+
+      fileToPlayerList(helsinkiPlayerList, helsinkiFile);
+
+      playerPrinter(helsinkiPlayerList,4);
+
+      printf("\n---------------------\n");
+
+      printf("Thank you for playing Hockey Simulator, please check out my other repo's on GitHub! @NickNav98");
+
+      printf("Author: Nicholas Navarro \n Exercise 9 System Software \n Turku AMK\n\n");
+
+
 
 
 
@@ -104,6 +136,8 @@ int main(){
 
 
     free(fillteamPtr);
+    free(raumaPlayerList);
+    free(helsinkiPlayerList);
     return 0;
 
 
