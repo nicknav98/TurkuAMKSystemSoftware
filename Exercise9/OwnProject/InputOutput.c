@@ -87,11 +87,11 @@ void fileToPlayerList(PLAYER *playerArrayPointer, char *filePath) {
     playerArrayPointer[c].Team = team;
 
 
-    nation = (char*)malloc(sizeof(char*));
-
     firstname = (char*)malloc(sizeof(char*));
 
     lastname = (char*)malloc(sizeof(char*));
+
+    nation = (char*)malloc(sizeof(char*));
 
     position = (char*)malloc(sizeof(char*));
 
@@ -104,9 +104,9 @@ void fileToPlayerList(PLAYER *playerArrayPointer, char *filePath) {
     }
 
 
-    free(nation);
     free(firstname);
     free(lastname);
+    free(nation);
     free(position);
     free(shootingHand);
     free(team);

@@ -35,6 +35,7 @@ TEAM *teamArray(TEAM *emptyArray, int numOfTeams) {
 
   for(c = 0; c < numOfTeams; c++){
     printf("\nEnter details of Hockey Team %d\n\n", c + 1);
+    printf("\nTeam List: Rauma | Turku | Helsinki | Tampere\n");
 
     printf("Enter Team Name: ");
     teams[c].teamName=(char*)malloc(sizeof(char*));
@@ -62,7 +63,7 @@ void arrayPrinter(TEAM *arrayPointer, int size) {
      printf("Team Ties: %d\n", arrayPointer->teamTies);
      printf("Team Losses: %d\n", arrayPointer->teamLosses);
      printf("Total Games Played: %d\n", arrayPointer->totalGamesPlayed);
-     printf("Team Rating: %-.1f\n", arrayPointer->teamRating);
+     printf("Team Rating: %-.1f out 10\n", arrayPointer->teamRating);
 
      printf("-------------------------\n");
 
@@ -77,9 +78,10 @@ void teamRatingCalculator(TEAM *hockeyTeam) {
      float ratingCalculation = 0.0;
 
 
-     ratingCalculation = (hockeyTeam->teamWins + hockeyTeam->teamTies)/hockeyTeam->totalGamesPlayed;
+     ratingCalculation = ((float)hockeyTeam->teamWins)/((float)hockeyTeam->totalGamesPlayed);
 
-     ratingCalculation = ratingCalculation*10;
+     ratingCalculation *= 10;
+
 
      hockeyTeam->teamRating = ratingCalculation;
 

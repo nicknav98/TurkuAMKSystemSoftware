@@ -11,6 +11,6 @@
 
 
 void gameSimulation(TEAM *hockeyTeam1, TEAM *hockeyTeam2);
-
+void teamToFile(char *filePath, TEAM *teamList, int amount);
 
 #endif /* SIMULTION.H */

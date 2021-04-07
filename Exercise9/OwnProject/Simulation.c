@@ -27,15 +27,15 @@ typedef struct TEAM {
 void gameSimulation(TEAM *hockeyTeam1, TEAM *hockeyTeam2){
 
   int gamePeriod = 0;
-  int userInput = 0;
+  int isGameOver = 0;
 
   int team1Goals = 0;
   int team2Goals = 0;
 
-  printf("Enter 1 to start the game: ");
-  scanf("%d", &userInput);
+  //printf("Enter 1 to start the game: ");
+  //scanf("%d", &userInput);
 
-  while(userInput != STOP){
+  while(isGameOver != STOP){
 
     for(gamePeriod = 0; gamePeriod < 3; gamePeriod++){
 
@@ -56,7 +56,7 @@ void gameSimulation(TEAM *hockeyTeam1, TEAM *hockeyTeam2){
         }
     }
 
-    userInput = STOP;
+    isGameOver = STOP;
   }
 
       if(team1Goals > team2Goals){
@@ -78,5 +78,25 @@ void gameSimulation(TEAM *hockeyTeam1, TEAM *hockeyTeam2){
     hockeyTeam1->totalGamesPlayed += 1;
     hockeyTeam2->totalGamesPlayed += 1;
 
+
+}
+
+
+void teamToFile(char *filePath, TEAM *arrayPointer, int amount) {
+  FILE *openFile = fopen(filePath, "wb");
+  int c = 0;
+
+  for (c = 0; c < amount; c++){
+
+    fwrite(arrayPointer, sizeof(TEAM), 2, openFile);
+    arrayPointer++;
+
+
+
+  }
+
+  fclose(openFile);
+
+  printf("Team Results have been printed to %s file! \n", filePath);
 
 }
