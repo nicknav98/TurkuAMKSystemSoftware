@@ -30,16 +30,37 @@ TEAM *teamArray(TEAM *emptyArray, int numOfTeams) {
 
 
   int c = 0;
+  int menuChoice = 0;
   TEAM* teams = malloc(numOfTeams * sizeof *teams);
 
 
   for(c = 0; c < numOfTeams; c++){
     printf("\nEnter details of Hockey Team %d\n\n", c + 1);
-    printf("\nTeam List: Rauma | Turku | Helsinki | Tampere\n");
+    printf("\nTeam List: 1.Rauma | 2.Turku | 3.Helsinki | 4.Tampere\n\n");
 
-    printf("Enter Team Name: ");
+    printf("Enter Select Team according to Number: ");
     teams[c].teamName=(char*)malloc(sizeof(char*));
-    scanf("%s", teams[c].teamName);
+    scanf("%d", &menuChoice);
+
+    if(menuChoice == 1){
+      printf("\nRauma Chosen\n");
+      teams[c].teamName=("Rauma");
+    } else if (menuChoice == 2) {
+        printf("\nTurku Chosen\n");
+        teams[c].teamName=("Turku");
+      } else if(menuChoice == 3) {
+        printf("\nHelsinki Chosen\n");
+        teams[c].teamName=("Helsinki");
+      } else if(menuChoice == 4) {
+        printf("\nTampere Chosen\n");
+        teams[c].teamName=("Tampere");
+      } else if(menuChoice > 4) {
+        printf("Invalid Input!\n");
+        teams[c].teamName=("Error - Invalid Name");
+      } else if(menuChoice <= 0) {
+        printf("Invalid Input!\n");
+        teams[c].teamName=("Error - Invalid Name");
+      }
 
     }
 
@@ -68,7 +89,7 @@ void arrayPrinter(TEAM *arrayPointer, int size) {
      printf("-------------------------\n");
 
      arrayPointer++;
- }
+   }
 
 }
 

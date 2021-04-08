@@ -108,8 +108,24 @@ int main(){
       fillteamPtr = teamArray(emptyteamPtr,TEAMAMOUNT);
       free(emptyteamPtr);
 
+      if(strcmp(fillteamPtr->teamName, "Error - Invalid Name") == 0) {
+        printf("Error Found! Invalid User Input....Program Terminating....\n");
+        return 0;
+      } else if(strcmp((fillteamPtr+1)->teamName, "Error - Invalid Name") == 0) {
+        printf("Error Found! Invalid User Input....Program Terminating....\n");
+        return 0;
+      }
+
       printf("\nPlease Enter the amount of games you would like to simulate: ");
       scanf("%d", &gameAmount);
+
+      if (gameAmount < 0){
+        printf("Please enter an integer bigger than 0....Program Terminating\n");
+        return 0;
+      } else if(gameAmount == 0) {
+        printf("0 Games have been played due to unforeseen circumstances, program terminating...\n");
+        return 0;
+      }
 
       for (gameCounter = 0; gameCounter < gameAmount; gameCounter++) {
       gameSimulation(fillteamPtr,(fillteamPtr + 1));
@@ -130,45 +146,51 @@ int main(){
 
     printf("-------------------------------------\n");
 
-    if(strcmp(fillteamPtr->teamName, "Turku") == 0){
+    if(strcmp(fillteamPtr->teamName, "Turku") == 0) {
        fileToPlayerList(turkuPlayerList,turkuFile);
        playerPrinter(turkuPlayerList,PLAYERAMOUNT);
     }
 
-    else if(strcmp(fillteamPtr->teamName, "Tampere") == 0){
+    else if(strcmp(fillteamPtr->teamName, "Tampere") == 0) {
        fileToPlayerList(tamperePlayerList,tampereFile);
        playerPrinter(tamperePlayerList,PLAYERAMOUNT);
     }
 
-    else if(strcmp(fillteamPtr->teamName, "Rauma") == 0){
+    else if(strcmp(fillteamPtr->teamName, "Rauma") == 0) {
        fileToPlayerList(raumaPlayerList,raumaFile);
        playerPrinter(raumaPlayerList,PLAYERAMOUNT);
     }
 
-    else if(strcmp(fillteamPtr->teamName, "Helsinki") == 0){
+    else if(strcmp(fillteamPtr->teamName, "Helsinki") == 0) {
        fileToPlayerList(helsinkiPlayerList,helsinkiFile);
        playerPrinter(helsinkiPlayerList,PLAYERAMOUNT);
     }
 
-    if(strcmp((fillteamPtr+1)->teamName, "Turku") == 0){
+
+
+    /* SEPERATOR */
+
+    if(strcmp((fillteamPtr+1)->teamName, "Turku") == 0) {
        fileToPlayerList(turkuPlayerList,turkuFile);
        playerPrinter(turkuPlayerList,PLAYERAMOUNT);
     }
 
-    else if(strcmp((fillteamPtr+1)->teamName, "Tampere") == 0){
+    else if(strcmp((fillteamPtr+1)->teamName, "Tampere") == 0) {
        fileToPlayerList(tamperePlayerList,tampereFile);
        playerPrinter(tamperePlayerList,PLAYERAMOUNT);
     }
 
-    else if(strcmp((fillteamPtr+1)->teamName, "Rauma") == 0){
+    else if(strcmp((fillteamPtr+1)->teamName, "Rauma") == 0) {
        fileToPlayerList(raumaPlayerList,raumaFile);
        playerPrinter(raumaPlayerList,PLAYERAMOUNT);
     }
 
-    else if(strcmp((fillteamPtr+1)->teamName, "Helsinki") == 0){
+    else if(strcmp((fillteamPtr+1)->teamName, "Helsinki") == 0) {
        fileToPlayerList(helsinkiPlayerList,helsinkiFile);
        playerPrinter(helsinkiPlayerList,PLAYERAMOUNT);
     }
+
+  
 
 
 
