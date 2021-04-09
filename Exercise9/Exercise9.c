@@ -1,7 +1,9 @@
 /*
+
   File:         Exercise9.c
   Author:	      Nicholas Navarro
   Description:  Exercise 9 - Array of structs
+
 */
 
 /* IMPORTING LIBRARIES AND PRE PROCESSING */

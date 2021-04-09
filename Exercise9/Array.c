@@ -9,7 +9,7 @@
 #include<stdio.h> //used for basic functions
 #include<string.h> //used for string conversions
 #include<stdlib.h> //used for scanf functions
-#include<math.h>
+
 
 typedef struct //custom defined data type TEAM
 {
@@ -121,7 +121,7 @@ void playersPrinter(PLAYER *arrayPointer, int size) { //function thats prints a 
      printf("Player's Points per Game: %.1f\n", arrayPointer->pointsPerGame);//print points per game attriute
      printf("-------------------------\n");//seperator line
 
-     arrayPointer++;//increase position pointer 
+     arrayPointer++;//increase position pointer
  }
 
 

@@ -2,7 +2,7 @@
 /*
  * File:       	Struct.h
  * Author:  	Nicholas Navaarro
- * Description: Aray Header File, please refer to Array.C for further code comment 
+ * Description: Aray Header File, please refer to Array.C for further code comment
 */
 
 #ifndef ARRAY_H
